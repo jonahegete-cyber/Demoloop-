@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Caine AI</title>
+</head>
+<body>
+  <h1>Caine AI 🤡</h1>
+  <input id="userInput" placeholder="Sag etwas...">
+  <button onclick="talk()">Senden</button>
+  <p id="response"></p>
+
+  <script>
+    function talk() {
+      let input = document.getElementById("userInput").value;
+      
+      let replies = [
+        "HAHA! Was für ein faszinierender Gedanke!",
+        "Ohhh, du kleiner Spieler... erzähl mir mehr!",
+        "Das klingt nach CHAOS! Ich liebe es!",
+        "Interessant! Sehr interessant!"
+      ];
+
+      let reply = replies[Math.floor(Math.random() * replies.length)];
+
+      document.getElementById("response").innerText = reply;
+
+      let speech = new SpeechSynthesisUtterance(reply);
+      speech.pitch = 1.5;
+      speech.rate = 1.2;
+      speechSynthesis.speak(speech);
+    }
+  </script>
+</body>
+</html>
